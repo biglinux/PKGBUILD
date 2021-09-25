@@ -1,0 +1,15 @@
+# Maintainer: Bruno Goncalves <bigbruno@gmail.com>
+
+pkgname=big-first-boot
+pkgver=1.0.0
+pkgrel=7
+arch=('any')
+license=('GPL')
+url="https://github.com/biglinux/big-first-boot"
+pkgdesc="Configuration in first boot after install in hd"
+source=("git+https://github.com/biglinux/big-first-boot.git")
+md5sums=(SKIP)
+
+package() {
+    cp -r "${srcdir}/big-first-boot/big-first-boot/usr/" "${pkgdir}/"
+} 

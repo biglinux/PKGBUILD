@@ -1,0 +1,19 @@
+# Maintainer: Bruno Goncalves <bigbruno@gmail.com>
+
+pkgname=pjecalc-instalador
+pkgver=1.0.1.big
+pkgrel=2
+arch=('any')
+license=('GPL')
+depends=('java-runtime' 'p7zip' 'kdialog')
+url="https://github.com/biglinux/pjecalc-instalador"
+pkgdesc="Scriipt to solve some problems with sudo in KDE"
+source=("git+https://github.com/biglinux/pjecalc-instalador.git")
+md5sums=(SKIP)
+
+package() {
+
+    cp -r "${srcdir}/pjecalc-instalador/usr" "${pkgdir}/usr"
+}
+
+

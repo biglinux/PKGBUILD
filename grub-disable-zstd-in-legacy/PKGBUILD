@@ -1,0 +1,17 @@
+# Maintainer: Bruno Goncalves <bigbruno@gmail.com>
+
+pkgname=grub-disable-zstd-in-legacy
+pkgver=$(date +"%Y_%m_%d")
+pkgrel=1
+arch=('any')
+license=('GPL')
+url="https://github.com/biglinux/grub-disable-zstd-in-legacy"
+pkgdesc="Disable zstd in grub legacy because need maintain with less than 60kb"
+source=("git+https://github.com/biglinux/grub-disable-zstd-in-legacy.git")
+md5sums=(SKIP)
+
+package() {
+    cp -r "${srcdir}/grub-disable-zstd-in-legacy/grub-disable-zstd-in-legacy/usr/" "${pkgdir}/"
+}
+
+

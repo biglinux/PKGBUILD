@@ -1,0 +1,24 @@
+# Maintainer: Bruno Goncalves <bigbruno@gmail.com>
+
+pkgname=bigbashview
+pkgver=$(curl https://github.com/biglinux/bigbashview/-/raw/master/bigbashview/usr/lib/python3/dist-packages/bbv/globaldata.py | grep APP_VERSION  | cut -f2 -d\")_$(date +"%Y_%m_%d")
+pkgrel=0
+arch=('any')
+license=('GPL')
+url="https://github.com/biglinux/bigbashview"
+pkgdesc="BigBashView is a python app to run Bash+HTML in a Desktop WebView"
+depends=('pyside2' 'python-six')
+source=("git+https://github.com/biglinux/bigbashview.git")
+md5sums=(SKIP)
+#source=("https://github.com/biglinux/bigbashview/archive/3.0.tar.gz")
+#sha256sums=('f97fb96cf6b57a9312bbae25893dfd9fe02d27b2bb235aeab59c67bbac701699')
+
+package() {
+    mkdir -p "${pkgdir}/usr" "${pkgdir}/usr/lib/python3.9/"
+    cp -r "${srcdir}/bigbashview/bigbashview/usr/" "${pkgdir}/"
+    mv "${pkgdir}/usr/lib/python3/dist-packages/bbv/" "${pkgdir}/usr/lib/python3.9/bbv/"
+    rm -Rf "${pkgdir}/usr/lib/python3"
+    sed -i 's|/usr/lib/python3/dist-packages/bbv/|/usr/lib/python3.9/bbv/|g' "${pkgdir}/usr/bin/bigbashview"
+}
+
+

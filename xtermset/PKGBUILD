@@ -1,0 +1,24 @@
+# Maintainer: Bruno Goncalves <bigbruno@gmail.com>
+
+pkgname=xtermset
+pkgver=1.0.0
+pkgrel=2
+arch=('any')
+license=('GPL')
+url="https://github.com/biglinux/xtermset"
+pkgdesc="Set window properties"
+source=("git+https://github.com/biglinux/xtermset.git")
+md5sums=(SKIP)
+
+package() {
+    cd "${srcdir}/xtermset/xtermset-0.5.2"
+#     patch -p1 < ../debian/patches/01-fix-wrong-use-of-hyphens-in-manpage.patch
+#     patch -p1 < ../debian/patches/02-array-bounds-overruns.patch
+    ./configure
+    autoreconf -if
+    make
+    cd ../..
+    mkdir -p "${pkgdir}/usr/bin"
+    cp "${srcdir}/xtermset/xtermset-0.5.2/src/xtermset" "${pkgdir}/usr/bin/"
+}
+

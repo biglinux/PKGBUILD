@@ -1,0 +1,16 @@
+# Maintainer: Bruno Goncalves <bigbruno@gmail.com>
+
+pkgname=big-mount-git
+pkgver=1.0.0
+pkgrel=2
+arch=('any')
+license=('GPL')
+depends=('udisks2' 'util-linux' 'ntfs-3g')
+url="https://github.com/biglinux/big-mount"
+pkgdesc="Auto mount partitions in internal disks on boot"
+source=("git+https://github.com/biglinux/big-mount.git")
+md5sums=(SKIP)
+
+package() {
+    cp -r "${srcdir}/big-mount/big-mount/usr/" "${pkgdir}/"
+} 

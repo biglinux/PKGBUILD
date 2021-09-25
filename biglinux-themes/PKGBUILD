@@ -1,0 +1,22 @@
+# Maintainer: Bruno Goncalves <bigbruno@gmail.com>
+
+pkgname=biglinux-themes
+pkgver=1.4.0
+pkgrel=2
+arch=('any')
+license=('GPL')
+url="https://github.com/biglinux/biglinux-themes"
+pkgdesc="Interface to change theme in BigLinux"
+depends=('qtcurve-kde' 'orchis-theme-git' 'lightly-git' 'lightlyshaders-git' 'materia-gtk-theme' 'cantarell-fonts' 'ttf-comfortaa' 'ttf-font-awesome' 'ttf-inconsolata' 'plasma-framework' 'bigbashview' 'breeze-gtk' 'ttf-croscore' 'xtermset' 'wmctrl' 'ttf-comfortaa' 'ttf-ubuntu-font-family' 'xsettingsd')
+source=("git+https://github.com/biglinux/biglinux-themes.git")
+md5sums=(SKIP)
+
+
+package() {
+    cp -r "${srcdir}/biglinux-themes/biglinux-themes/usr/" "${pkgdir}/"
+    cp -r "${srcdir}/biglinux-themes/biglinux-themes/etc/" "${pkgdir}/"
+    rm -R "${pkgdir}/usr/share/themes/"
+    rm -f "${pkgdir}/usr/share/plasma/desktoptheme/default/icons/start.svgz"
+}
+
+

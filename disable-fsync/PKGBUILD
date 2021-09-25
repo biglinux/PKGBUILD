@@ -1,0 +1,19 @@
+# Maintainer: Bruno Goncalves <bigbruno@gmail.com>
+
+pkgname=disable-fsync
+pkgver=1.0.0
+pkgrel=0
+arch=('any')
+license=('GPL')
+makedepends=('clang')
+url="https://github.com/biglinux/disable-fsync"
+pkgdesc="Automatic enable dbus-broker"
+source=("git+https://github.com/biglinux/disable-fsync.git")
+md5sums=(SKIP)
+
+package() {
+    cd "${srcdir}/disable-fsync/disable-fsync/src/"
+    make
+    mkdir -p "${pkgdir}/usr/lib"
+    cp disable-fsync.so "${pkgdir}/usr/lib"
+} 

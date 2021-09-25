@@ -1,0 +1,18 @@
+# Maintainer: Bruno Goncalves <bigbruno@gmail.com>
+
+pkgname=plasma-appsmenu-biglinux
+pkgver=1.0.0
+pkgrel=4
+arch=('any')
+license=('GPL')
+url="https://github.com/biglinux/plasma-appsmenu-biglinux"
+pkgdesc="New customizable menu to plasma"
+depends=('plasma-desktop')
+source=("git+https://github.com/biglinux/plasma-appsmenu-biglinux.git")
+md5sums=(SKIP)
+
+package() {
+    cp -r "${srcdir}/plasma-appsmenu-biglinux/usr/" "${pkgdir}/"
+}
+
+

@@ -1,0 +1,17 @@
+# Maintainer: Bruno Goncalves <bigbruno@gmail.com>
+
+pkgname=biglinux-multi-kde
+pkgver=1.0.3
+pkgrel=0
+arch=('any')
+license=('GPL')
+url="https://github.com/biglinux/biglinux-multi-kde"
+pkgdesc="Multi configurations to KDE"
+source=("git+https://github.com/biglinux/biglinux-multi-kde.git")
+md5sums=(SKIP)
+
+package() {
+    cp -r "${srcdir}/biglinux-multi-kde/biglinux-multi-kde/usr/" "${pkgdir}/"
+}
+
+

@@ -1,0 +1,19 @@
+# Maintainer: Bruno Goncalves <bigbruno@gmail.com>
+
+pkgname=live-hello
+pkgver=1.0.0
+pkgrel=0
+arch=('any')
+license=('GPL')
+url="https://github.com/biglinux/live-hello"
+pkgdesc="Wallpapers and icons to BigLinux"
+depends=('bigbashview')
+source=("git+https://github.com/biglinux/live-hello.git")
+md5sums=(SKIP)
+
+
+package() {
+    cp -r "${srcdir}/live-hello/live-hello/usr/" "${pkgdir}/"
+}
+
+

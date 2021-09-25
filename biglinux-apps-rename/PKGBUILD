@@ -1,0 +1,18 @@
+# Maintainer: Bruno Goncalves <bigbruno@gmail.com>
+
+pkgname=biglinux-apps-rename
+pkgver=1.0.2
+pkgrel=4
+arch=('any')
+license=('GPL')
+url="https://github.com/biglinux/biglinux-apps-rename"
+pkgdesc="Rename apps"
+source=("git+https://github.com/biglinux/biglinux-apps-rename.git")
+md5sums=(SKIP)
+
+
+package() {
+    cp -r "${srcdir}/biglinux-apps-rename/biglinux-apps-rename/usr/" "${pkgdir}/"
+}
+
+

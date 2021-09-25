@@ -1,0 +1,15 @@
+# Maintainer: Bruno Goncalves <bigbruno@gmail.com>
+
+pkgname=mx-idevice-mounter
+pkgver=$(date +"%Y_%m_%d")
+pkgrel=1
+arch=('any')
+license=('GPL')
+url="https://github.com/biglinux/mx-idevice-mounter"
+pkgdesc="Python3 GUI using the idevice & ifuse projects to mount & unmount iPhone & iPad filesystems"
+source=("git+https://github.com/biglinux/mx-idevice-mounter.git")
+md5sums=(SKIP)
+depends=(ifuse python-pyqt5 ideviceinstaller pymobiledevice-git python-bpylist2)
+package() {
+	cp -R "${srcdir}/mx-idevice-mounter/pkg/usr" "${pkgdir}/usr"
+}

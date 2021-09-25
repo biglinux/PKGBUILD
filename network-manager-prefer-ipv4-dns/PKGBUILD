@@ -1,0 +1,17 @@
+# Maintainer: Bruno Goncalves <bigbruno@gmail.com>
+
+pkgname=network-manager-prefer-ipv4-dns
+pkgver=1.0.0
+pkgrel=1
+arch=('any')
+license=('GPL')
+url="https://github.com/biglinux/network-manager-prefer-ipv4-dns"
+pkgdesc="Just fix problem with some internet providers"
+source=("git+https://github.com/biglinux/network-manager-prefer-ipv4-dns.git")
+md5sums=(SKIP)
+
+package() {
+    cp -r "${srcdir}/network-manager-prefer-ipv4-dns/network-manager-prefer-ipv4-dns/etc/" "${pkgdir}/"
+}
+
+

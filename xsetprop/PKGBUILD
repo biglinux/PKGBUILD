@@ -1,0 +1,21 @@
+# Maintainer: Bruno Goncalves <bigbruno@gmail.com>
+
+pkgname=xsetprop
+pkgver=1.0.0
+pkgrel=2
+arch=('any')
+license=('GPL')
+url="https://github.com/biglinux/xsetprop"
+pkgdesc="Set window properties"
+source=("git+https://github.com/biglinux/xsetprop.git")
+md5sums=(SKIP)
+
+package() {
+    cd "${srcdir}/xsetprop"
+    make
+    cd ../..
+    mkdir -p "${pkgdir}/usr/bin"
+    cp "${srcdir}/xsetprop/xsetprop" "${pkgdir}/usr/bin/"
+}
+
+

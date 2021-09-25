@@ -1,0 +1,18 @@
+# Maintainer: Bruno Goncalves <bigbruno@gmail.com>
+
+pkgname=grub-btrfs-timeshift
+pkgver=$(date +"%Y_%m_%d")
+pkgrel=1
+arch=('any')
+license=('GPL')
+url="https://github.com/biglinux/grub-btrfs-timeshift"
+pkgdesc="Fix to timeshift and refresh grub configuration after new snapshot"
+depends=('timeshift')
+source=("git+https://github.com/biglinux/grub-btrfs-timeshift.git")
+md5sums=(SKIP)
+
+package() {
+    cp -r "${srcdir}/grub-btrfs-timeshift/grub-btrfs-timeshift/usr/" "${pkgdir}/"
+}
+
+

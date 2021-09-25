@@ -1,0 +1,17 @@
+# Maintainer: Bruno Goncalves <bigbruno@gmail.com>
+
+pkgname=force-upgrade
+pkgver=1.0.0
+pkgrel=1
+arch=('any')
+license=('GPL')
+url="https://github.com/biglinux/force-upgrade"
+pkgdesc="Force upgrade or reinstall pacman keys"
+source=("git+https://github.com/biglinux/force-upgrade.git")
+md5sums=(SKIP)
+
+package() {
+    cp -r "${srcdir}/force-upgrade/force-upgrade/usr/" "${pkgdir}/"
+}
+
+

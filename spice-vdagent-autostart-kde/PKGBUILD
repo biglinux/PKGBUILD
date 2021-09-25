@@ -1,0 +1,19 @@
+# Maintainer: Bruno Goncalves <bigbruno@gmail.com>
+
+pkgname=spice-vdagent-autostart-kde
+pkgver=1.0.1.big
+pkgrel=2
+arch=('any')
+license=('GPL')
+depends=('spice-vdagent')
+url="https://github.com/biglinux/spice-vdagent-autostart-kde"
+pkgdesc="Scriipt to solve some problems with sudo in KDE"
+source=("git+https://github.com/biglinux/spice-vdagent-autostart-kde.git")
+md5sums=(SKIP)
+
+package() {
+    mkdir -p "${pkgdir}/etc/xdg/autostart"
+    cp -r "${srcdir}/spice-vdagent-autostart-kde/spice-vdagent-autostart-kde.desktop" "${pkgdir}/etc/xdg/autostart/spice-vdagent-autostart-kde.desktop"
+}
+
+

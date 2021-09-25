@@ -1,0 +1,19 @@
+# Maintainer: Bruno Goncalves <bigbruno@gmail.com>
+
+pkgname=biglinux-mime
+pkgver=1.0.0_1big
+pkgrel=4
+arch=('any')
+license=('GPL')
+url="https://github.com/biglinux/biglinux-mime"
+pkgdesc="Scriipt to solve some problems with sudo in KDE"
+source=("git+https://github.com/biglinux/biglinux-mime.git")
+md5sums=(SKIP)
+depends=('yad' 'namcap' 'pamac-gtk' 'kate')
+
+package() {
+    cp -r "${srcdir}/biglinux-mime/etc/" "${pkgdir}/"
+    cp -r "${srcdir}/biglinux-mime/usr/" "${pkgdir}/"
+}
+
+

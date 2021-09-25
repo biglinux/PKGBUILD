@@ -1,0 +1,18 @@
+# Maintainer: Bruno Goncalves <bigbruno@gmail.com>
+
+pkgname=biglinux-changes-to-plasma-git
+pkgver=1.0.0_$(date +"%Y_%m_%d")
+pkgrel=1
+arch=('any')
+license=('GPL')
+url="https://github.com/biglinux/biglinux-changes-to-plasma"
+pkgdesc="Change files from plasma"
+depends=('plasma-desktop')
+source=("git+https://github.com/biglinux/biglinux-changes-to-plasma.git")
+md5sums=(SKIP)
+
+package() {
+    cp -r "${srcdir}/biglinux-changes-to-plasma/biglinux-changes-to-plasma/usr/" "${pkgdir}/"
+}
+
+

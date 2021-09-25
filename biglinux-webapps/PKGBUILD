@@ -1,0 +1,19 @@
+# Maintainer: Bruno Goncalves <bigbruno@gmail.com>
+
+pkgname=biglinux-webapps
+pkgver=1.2.2
+pkgrel=5
+arch=('any')
+license=('GPL')
+url="https://github.com/biglinux/biglinux-webapps"
+pkgdesc="Wallpapers and icons to BigLinux"
+depends=('bigbashview' 'python-bs4')
+source=("git+https://github.com/biglinux/biglinux-webapps.git")
+md5sums=(SKIP)
+
+
+package() {
+    cp -r "${srcdir}/biglinux-webapps/biglinux-webapps/usr/" "${pkgdir}/"
+}
+
+

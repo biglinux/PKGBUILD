@@ -1,0 +1,17 @@
+# Maintainer: Bruno Goncalves <bigbruno@gmail.com>
+
+pkgname=biglinux-name
+pkgver=$(date +"%Y_%m_%d")
+pkgrel=1
+arch=('any')
+license=('GPL')
+url="https://github.com/biglinux/biglinux-name"
+pkgdesc="BigLinux name"
+source=("git+https://github.com/biglinux/biglinux-name.git")
+md5sums=(SKIP)
+
+package() {
+    cp -r "${srcdir}/biglinux-name/biglinux-name/usr/" "${pkgdir}/"
+}
+
+

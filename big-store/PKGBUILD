@@ -1,0 +1,22 @@
+# Maintainer: Bruno Goncalves <bigbruno@gmail.com>
+
+pkgname=big-store
+pkgver=1.0.4
+pkgrel=1
+arch=('any')
+license=('GPL')
+url="https://github.com/biglinux/big-store"
+pkgdesc="A friendly interface using bigbashview and that uses a large part of pamac resources to offer users a practical and simple interface"
+depends=('pamac-gtk' 'jq' 'gawk' 'sed' 'yay' 'rxvt-unicode' 'xorg-xwininfo' 'bigbashview' 'ttf-comfortaa' 'xsetprop' 'xtermset' 'wmctrl' 'ttf-comfortaa' 'ttf-ubuntu-font-family' 'force-upgrade')
+optdepends=('pamac-snap-plugin' 'pamac-flatpak-plugin')
+source=("git+https://github.com/biglinux/big-store.git")
+md5sums=(SKIP)
+
+
+package() {
+    cp -r "${srcdir}/big-store/big-store/usr/" "${pkgdir}/"
+    mkdir "${pkgdir}/usr/bin"
+    ln -s "/usr/share/bigbashview/bcc/apps/big-store/big-store-start.sh" "${pkgdir}/usr/bin/big-store"
+}
+
+

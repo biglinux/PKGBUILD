@@ -1,0 +1,15 @@
+# Maintainer: Bruno Goncalves <bigbruno@gmail.com>
+
+pkgname=auto-unlock-pacman-git
+pkgver=1.0.0
+pkgrel=4
+arch=('any')
+license=('GPL')
+url="https://github.com/biglinux/auto-unlock-pacman"
+pkgdesc="Preload some files to make system faster"
+source=("git+https://github.com/biglinux/auto-unlock-pacman.git")
+md5sums=(SKIP)
+
+package() {
+    cp -r "${srcdir}/auto-unlock-pacman/auto-unlock-pacman/usr/" "${pkgdir}/"
+} 

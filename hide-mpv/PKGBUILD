@@ -1,0 +1,36 @@
+# Maintainer: Bruno Goncalves <bigbruno@gmail.com>
+
+pkgname=hide-mpv
+pkgver=1.0.1
+pkgrel=0
+arch=('any')
+license=('GPL')
+pkgdesc="Hide mpv in system menu"
+md5sums=(SKIP)
+
+
+package() {
+
+mkdir -p "${pkgdir}/usr/share/libalpm/hooks"
+
+echo '[Trigger]
+Type = Package
+Operation = Install
+Target =  hide-mpv
+Target = mpv
+
+[Action]
+Description = hide mpv
+When = PostTransaction
+Exec = mv -f /usr/share/applications/mpv.desktop /usr/share/kservices5/mpv.desktop' > "${pkgdir}/usr/share/libalpm/hooks/hide-mpv-install.hook"
+
+echo '[Trigger]
+Type = Package
+Operation = Remove
+Target =  hide-mpv
+
+[Action]
+Description = hide mpv
+When = PostTransaction
+Exec = mv -f /usr/share/kservices5/mpv.desktop /usr/share/applications/mpv.desktop' > "${pkgdir}/usr/share/libalpm/hooks/hide-mpv-remove.hook"
+} 

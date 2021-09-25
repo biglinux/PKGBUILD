@@ -1,0 +1,19 @@
+# Maintainer: Bruno Goncalves <bigbruno@gmail.com>
+
+pkgname=plasmamenufork
+pkgver=1.0.2
+pkgrel=1
+arch=('any')
+license=('GPL')
+url="https://github.com/biglinux/plasmamenufork"
+pkgdesc="Fork of plasma dashboard named as simple menu and super simple menu"
+depends=('plasma-desktop')
+source=("git+https://github.com/biglinux/plasmamenufork.git")
+md5sums=(SKIP)
+
+package() {
+    mkdir -p "${pkgdir}/usr" "${pkgdir}/usr/lib/python3.9/"
+    cp -r "${srcdir}/plasmamenufork/plasmamenufork/usr/" "${pkgdir}/"
+}
+
+

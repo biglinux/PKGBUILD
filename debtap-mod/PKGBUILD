@@ -1,0 +1,18 @@
+# Maintainer: Bruno Goncalves <bigbruno@gmail.com>
+
+pkgname=debtap-mod
+pkgver=1.1.0_1big
+pkgrel=1
+arch=('any')
+license=('GPL')
+url="https://github.com/biglinux/debtap-mod"
+pkgdesc="Convert and install .deb packages"
+source=("git+https://github.com/biglinux/debtap-mod.git")
+md5sums=(SKIP)
+depends=('yad' 'namcap' 'pamac-gtk' 'kate' 'zenity' 'fakeroot')
+
+package() {
+    cp -r "${srcdir}/debtap-mod/usr/" "${pkgdir}/"
+}
+
+
